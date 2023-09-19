@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <style>
+      #maze {
+        width: 1000px;
+        height: 1000px;
+        border: 1px solid black;
+        position: relative;
+      }
+      .wall {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-color: black;
+      }
+      #end {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-color: green;
+        top: 900px;
+        left: 900px;
+      }
+      #start {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-color: yellow;
+        top: 0px;
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="maze">
+      <div class="wall" id="wall1" style="top: 200px; left: 100px;"></div>
+      <div class="wall" id="wall2" style="top: 300px; left: 200px;"></div>
+      <div class="wall" id="wall3" style="top: 500px; left: 0px;"></div>
+      <div class="wall" id="wall4" style="top: 600px; left: 400px;"></div>
+      <div class="wall" id="wall5" style="top: 800px; left: 200px;"></div>
+      <div class="wall" id="wall6" style="top: 200px; left: 800px;"></div>
+      <div class="wall" id="wall7" style="top: 400px; left: 600px;"></div>
+      <div class="wall" id="wall8" style="top: 600px; left: 800px;"></div>
+      <div class="wall" id="wall9" style="top: 800px; left: 800px;"></div>
+      <div class="wall" id="wall10" style="top: 800px; left: 600px;"></div>
+      <div class="wall" id="wall11" style="top: 0px; left: 300px;"></div>
+      <div class="wall" id="wall12" style="top: 0px; left: 500px;"></div>
+      <div class="wall" id="wall13" style="top: 100px; left: 700px;"></div>
+      <div class="wall" id="wall14" style="top: 300px; left: 700px;"></div>
+      <div class="wall" id="wall15" style="top: 500px; left: 700px;"></div>
+      <div class="wall" id="wall16" style="top: 700px; left: 700px;"></div>
+      <div class="wall" id="wall17" style="top: 800px; left: 700px;"></div>
+      <div class="wall" id="wall18" style="top: 500px; left: 500px;"></div>
+      <div class="wall" id="wall19" style="top: 500px; left: 300px;"></div>
+     <div class="wall" id="wall20" style="top: 200px; left: 500px;"></div>
+<div class="wall" id="wall21" style="top: 400px; left: 300px;"></div>
+<div class="wall" id="wall22" style="top: 600px; left: 100px;"></div>
+<div class="wall" id="wall23" style="top: 800px; left: 0px;"></div>
+<div class="wall" id="wall24" style="top: 100px; left: 400px;"></div>
+<div class="wall" id="wall25" style="top: 300px; left: 600px;"></div>
+<div class="wall" id="wall26" style="top: 500px; left: 800px;"></div>
+<div class="wall" id="wall27" style="top: 700px; left: 0px;"></div>
+<div class="wall" id="wall28" style="top: 0px; left: 800px;"></div>
+<div class="wall" id="wall29" style="top: 200px; left: 600px;"></div>
+<div class="wall" id="wall30" style="top: 400px; left: 800px;"></div>
+<div class="wall" id="wall31" style="top: 800px; left: 400px;"></div>
+<div class="wall" id="wall32" style="top: 600px; left: 600px;"></div>
+<div class="wall" id="wall33" style="top: 400px; left: 400px;"></div>
+<div class="wall" id="wall34" style="top: 200px; left: 300px;"></div>
+<div class="wall" id="wall35" style="top: 0px; left: 200px;"></div>
+<div class="wall" id="wall36" style="top: 800px; left: 100px;"></div>
+<div class="wall" id="wall37" style="top: 600px; left: 0px;"></div>
+<div class="wall" id="wall38" style="top: 400px; left: 200px;"></div>
+<div class="wall" id="wall39" style="top: 200px; left: 100px;"></div>
+<div class="wall" id="wall40" style="top: 200px; left: 900px;"></div>
+<div class="wall" id="wall41" style="top: 400px; left: 900px;"></div>
+<div class="wall" id="wall42" style="top: 600px; left: 900px;"></div>
+<div class="wall" id="wall43" style="top: 800px; left: 900px;"></div>
+<div class="wall" id="wall44" style="top: 0px; left: 900px;"></div>
+<div class="wall" id="wall44" style="top: 100px; left: 200px;"></div>
+<div class="wall" id="wall45" style="top: 300px; left: 400px;"></div>
+<div class="wall" id="wall46" style="top: 500px; left: 600px;"></div>
+<div class="wall" id="wall47" style="top: 700px; left: 800px;"></div>
+<div class="wall" id="wall48" style="top: 900px; left: 0px;"></div>
+<div class="wall" id="wall49" style="top: 200px; left: 300px;"></div>
+<div class="wall" id="wall50" style="top: 400px; left: 500px;"></div>
+      <div id="end"></div>
+      <div id="start"></div>
+    </div>
+  </body>
+  <script>
+const start = document.querySelector("#start");
+const walls = document.querySelectorAll(".wall");
+let startLeft = 0;
+let startTop = 0;
+
+document.onkeydown = function(event) {
+  switch (event.keyCode) {
+    case 37:
+      if (startLeft > 0 && !checkCollision(startLeft - 100, startTop)) {
+        startLeft -= 100;
+        start.style.left = startLeft + "px";
+      }
+      break;
+    case 38:
+      if (startTop > 0 && !checkCollision(startLeft, startTop - 100)) {
+        startTop -= 100;
+        start.style.top = startTop + "px";
+      }
+      break;
+    case 39:
+      if (startLeft < 900 && !checkCollision(startLeft + 100, startTop)) {
+        startLeft += 100;
+        start.style.left = startLeft + "px";
+      }
+      break;
+    case 40:
+      if (startTop < 900 && !checkCollision(startLeft, startTop + 100)) {
+        startTop += 100;
+        start.style.top = startTop + "px";
+      }
+      break;
+  }
+};
+
+function checkCollision(left, top) {
+  for (let i = 0; i < walls.length; i++) {
+    const wall = walls[i];
+    const wallLeft = parseInt(wall.style.left);
+    const wallTop = parseInt(wall.style.top);
+
+    if (left === wallLeft && top === wallTop) {
+      return true;
+    }
+  }
+
+  return false;
+}
+  </script>
+</html>
