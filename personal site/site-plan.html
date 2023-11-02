@@ -4,12 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>strapped_saints_site</title>
-<head>
+    <link rel="stylesheet" type="text/css" href="personal site\styles\site-plan.css">
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Rosarivo&family=Waterfall&display=swap');
+  /* Reset default margin and padding on all elements */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Apply a background color to the entire page */
+  body {
+    background-color: #000000;
+    font-family: Arial, sans-serif; /* Replace with your preferred font-family */
+  }
+
+  /* Style the headings (h2 and h3) */
+  h2, h3 {
+    color: #0f0092; /* Replace with your preferred text color */
+    font-family: 'rock salt', sans-serif; /* Replace with your custom font */
+  }
+
+  /* Style the paragraphs */
+  p {
+    color: rgb(255, 0, 0);
+    font-family: 'Rosarivo', sans-serif; /* Replace with your custom font */
+  }
+
+  /* Style the image */
+  img {
+    max-width: 100%; /* Ensure images don't overflow their containers */
+  }
+
+  /* Apply styles to specific elements */
+  /* For example, the "Website Logo" heading */
+  h3:contains("Website Logo") {
+    font-weight: bold;
+  }
+
+  /* Target the image within the "Website Logo" section */
+  h3:contains("Website Logo") + img {
+    border: 2px solid #336699;
+    border-radius: 10px;
+  }
+
+  /* Additional custom styles for your specific content */
+  /* For example, the "Purpose" and "Audience" sections */
+  h3:contains("Purpose") + p,
+  h3:contains("Audience") + p {
+    background-color: #e01313;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+</style>
   <main>
     <h3>Name</h3>
     <p>Zane Shumway</p>
     <h3>Section Number</h3>
-    <p>103</p>
+    <p>WDD103</p>
     <h3>Purpose</h3>
     <p>I'm going to make a promotional site for my dads merchandise business. It will contain his
         stories, products and his social media pages.</p>
