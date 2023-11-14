@@ -25,6 +25,7 @@ h2 {
 }
 header {
     background-color:rgba(20,30,13, .7);
+    height: 100px;
 }
 nav a:hover {
     background-color: black;
@@ -67,7 +68,7 @@ nav a:hover{
     color: #d9c2a3;
 }    
 .home-title{
-    color: #000000;
+    color: #ffffff;
     font-family: 'Rock Salt';
     font-size: 2em;
     margin-top: 10px;
